@@ -1,3 +1,4 @@
+# By MuZakkir Saifi
 # import logging for get the logs in  execution
 import logging
 # import the boto3 which will use to interact  with the aws
@@ -5,11 +6,11 @@ import boto3
 from botocore.exceptions import ClientError
 import json
 
-REGION = input("Please enter the REGION")
+REGION = input("Please enter the REGION: ")
 
 # this is the configration for the logger_for
 
-logger_for = logging.getlogger_for()
+logger_for = logging.getLogger()
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s: %(levelname)s: %(message)s')
 
@@ -30,8 +31,8 @@ def del_rule(security_grp_id, rule_ids):
 
 
 if __name__ == '__main__':
-    GROUP_ID = input("Please enter the security group id")
-    RULE_ID = input("Please enter the security group rule id")
+    GROUP_ID = input("Please enter the security group id: ")
+    RULE_ID = ['sgr-0059cb2f3e0311a82']
     logger_for.info(f'Please wait, we are removing a security group ingress rule(s)...')
     result = del_rule(GROUP_ID, RULE_ID)
     logger_for.info(
